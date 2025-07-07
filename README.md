@@ -2,55 +2,78 @@
 
 ![Screenshot 2025-06-23 022559](https://github.com/user-attachments/assets/a0af8b10-b2c2-442d-9133-c0e935e45a0c)
 
-This project demonstrates the design and implementation of a three-tier campus network featuring VLAN segmentation, dynamic routing with OSPF, and RIP as a backup protocol to ensure robust and efficient connectivity.
+# **Campus Network Design: Segmentation & Dynamic Routing**
 
-Overview
-Architecture: Three-tier campus network (Core, Distribution, Access)
+This project demonstrates the design and implementation of a **three-tier campus network** featuring **VLAN segmentation**, **dynamic routing with OSPF**, and **RIP as a backup protocol** to ensure robust and efficient connectivity.
 
-Segmentation: VLANs for each building and function (including CCTV and VoIP)
+---
 
-Dynamic Routing: OSPF as the primary protocol, RIP as a backup for redundancy
+## **Overview**
 
-Traffic Management: VLANs improve traffic isolation and management
+- **Architecture:** Three-tier campus network (**Core**, **Distribution**, **Access**)
+- **Segmentation:** VLANs for each building and function (including **CCTV** and **VoIP**)
+- **Dynamic Routing:** **OSPF** as the primary protocol, **RIP** as a backup for redundancy
+- **Traffic Management:** VLANs improve traffic isolation and management
 
-Network Topology
-Core Layer ↔ Distribution Layer:
+---
 
-VLAN: 6
+## **Network Topology**
 
-IP Range: 192.168.6.0/24
+### **Core Layer ↔ Distribution Layer**
+- **VLAN:** 6
+- **IP Range:** 192.168.6.0/24
 
-Internal Distribution Layer Connectivity:
+### **Internal Distribution Layer Connectivity**
+- **VLAN:** 16
+- **IP Range:** 172.16.6.0/24
 
-VLAN: 16
+### **Access Layer (Buildings)**
+- Each building assigned a **unique VLAN** for its function
+- All buildings include dedicated VLANs for **CCTV** and **VoIP**
 
-IP Range: 172.16.6.0/24
+---
 
-Access Layer (Buildings):
+## **VLAN Segmentation Example**
 
-Each building assigned a unique VLAN for its function
+| VLAN ID | Purpose                | Example IP Range      |
+|---------|------------------------|-----------------------|
+| 6       | Core-Distribution Link | 192.168.6.0/24        |
+| 16      | Internal Distribution  | 172.16.6.0/24         |
+| 10      | Building A Users       | 192.168.10.0/24       |
+| 20      | Building B Users       | 192.168.20.0/24       |
+| 100     | CCTV (All Buildings)   | 192.168.100.0/24      |
+| 200     | VoIP (All Buildings)   | 192.168.200.0/24      |
 
-All buildings include dedicated VLANs for CCTV and VoIP
+*Adjust VLAN IDs and IP ranges as needed for your campus.*
 
-Dynamic Routing
+---
+
+## **Dynamic Routing**
+
 Dynamic routing automates the process of updating routing tables, enabling the network to adapt to topology changes and failures without manual intervention.
 
-OSPF (Open Shortest Path First):
+### **OSPF (Open Shortest Path First)**
+- **Primary dynamic routing protocol**
+- Fast convergence and scalability
+- Ensures optimal path selection between VLANs and buildings
 
-Primary dynamic routing protocol
+### **RIP (Routing Information Protocol)**
+- **Configured as a backup protocol**
+- Provides redundancy in case OSPF fails
+- Ensures continuous network connectivity
 
-Fast convergence and scalability
+---
 
-Ensures optimal path selection between VLANs and buildings
-
-RIP (Routing Information Protocol):
-
-Configured as a backup protocol
-
-Provides redundancy in case OSPF fails
-
-Ensures continuous network connectivity
-
-Core Switch Routing Table
-
+## **Core Switch Routing Table (Example)**
 ![Screenshot 2025-06-23 015944](https://github.com/user-attachments/assets/e9efdf12-455b-4c3d-bf4c-4969f2606d28)
+---
+
+## **Key Points**
+
+- **VLANs** provide logical segmentation for improved security and traffic management.
+- **Dynamic routing** with OSPF ensures efficient, automatic path selection.
+- **RIP** acts as a backup, enhancing network reliability.
+- **Route tables** on the core switch reflect all VLANs and backup paths for seamless connectivity.
+
+---
+
