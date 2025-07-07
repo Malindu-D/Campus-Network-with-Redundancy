@@ -33,21 +33,6 @@ This project demonstrates the design and implementation of a **three-tier campus
 
 ---
 
-## **VLAN Segmentation Example**
-
-| VLAN ID | Purpose                | Example IP Range      |
-|---------|------------------------|-----------------------|
-| 6       | Core-Distribution Link | 192.168.6.0/24        |
-| 16      | Internal Distribution  | 172.16.6.0/24         |
-| 10      | Building A Users       | 192.168.10.0/24       |
-| 20      | Building B Users       | 192.168.20.0/24       |
-| 100     | CCTV (All Buildings)   | 192.168.100.0/24      |
-| 200     | VoIP (All Buildings)   | 192.168.200.0/24      |
-
-*Adjust VLAN IDs and IP ranges as needed for your campus.*
-
----
-
 ## **Dynamic Routing**
 
 Dynamic routing automates the process of updating routing tables, enabling the network to adapt to topology changes and failures without manual intervention.
@@ -64,7 +49,7 @@ Dynamic routing automates the process of updating routing tables, enabling the n
 
 ---
 
-## **Core Switch Routing Table (Example)**
+## **Core Switch Routing Table**
 ![Screenshot 2025-06-23 015944](https://github.com/user-attachments/assets/e9efdf12-455b-4c3d-bf4c-4969f2606d28)
 ---
 
